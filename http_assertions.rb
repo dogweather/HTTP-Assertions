@@ -74,7 +74,7 @@ module Test
 
       public 
       def assert_forbidden(url, message=nil)
-        assert_403(url message)
+        assert_403(url, message)
       end
 
       ##
