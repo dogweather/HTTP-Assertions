@@ -1,8 +1,7 @@
 SUMMARY
 
-HTTP-Assertions is a library which adds several new "assert..."
-methods to the Rails environment for testing an HTTP server's
-configuration:
+A library which adds several new "assert..." methods to the Rails
+environment for testing an HTTP server's configuration:
 
 assert_200
 assert_forbidden
@@ -17,17 +16,17 @@ testing scenarios (unit, functional, etc.) didn't cover an essential
 aspect of web apps: The web server's configuration.  For example, my
 website, OregonLaws.org, has several fairly complicated Apache config
 files: They contain various permanent and temporary redirects; some
-sections of the site are http, are are https.  I found that, as part
+sections of the site are http, others are https.  I found that as part
 of the apps' development, I needed to constantly tweak and extend this
-configuration --- a process that can easily introduce errors which
-were very difficult to detect.
+configuration --- a process that could easily introduce errors which
+were difficult to detect.
 
 
 SOLUTION
 
 I decided to create extra "assert..." methods so that I could write
-test cases like these.  I choose to put them in a file in the
-"integraton" directory:
+test cases like these.  I choose to wrap them up as an integration
+test file:
 
 
 require 'test_helper'
