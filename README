@@ -1,1 +1,18 @@
-This will be the Readme file.
+README for HTTP-Assertions
+
+A library which adds these new "assert..." methods to the Rails
+environment for testing an HTTP server's configuration:
+
+assert_200
+assert_forbidden
+assert_temp_redirect_to
+assert_perm_redirect_to
+
+
+
+
+--
+Copyright 2010 Robb Shecter (robb@weblaws.org)
+Licensed under the Ruby License
+
+
