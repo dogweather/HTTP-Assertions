@@ -1,7 +1,7 @@
-README for HTTP-Assertions
+SUMMARY
 
-A library which adds these new "assert..." methods to the Rails
-environment for testing an HTTP server's configuration:
+HTTP-Assertions is library which adds several new "assert..." methods
+to the Rails environment for testing an HTTP server's configuration:
 
 assert_200
 assert_forbidden
@@ -9,8 +9,63 @@ assert_temp_redirect_to
 assert_perm_redirect_to
 
 
+MOTIVATION 
+
+I wrote this library because I realized that the standard Rails
+testing scenarios (unit, functional, etc.) didn't cover an essential
+aspect of web apps: The web server's configuration.  For example, my
+website, OregonLaws.org, has several fairly complicated Apache config
+files: They contain various permanent and temporary redirects; some
+sections of the site are http, are are https.  I found that, as part
+of the apps' development, I needed to constantly tweak and extend this
+configuration --- a process that can easily introduce errors which
+were very difficult to detect.
 
 
+SOLUTION
+
+I decided to create extra "assert..." methods so that I could write
+test cases like these.  I choose to put them in a file in the
+"integraton" directory:
+
+
+require 'test_helper'
+class HttpOregonLawsTest < ActiveSupport::TestCase
+
+  test 'normal page' do
+    assert_200('https://www.oregonlaws.org/ors/161.360')    
+  end
+
+  test 'old url redirect' do
+    assert_perm_redirect_to(
+      'http://www.oregonlaws.org/ors_chapters/272/ors_sections/060',
+      'https://www.oregonlaws.org/ors/272.060'
+    )
+  end
+
+end
+
+
+REQUIREMENTS
+
+Rails, and "curl" correctly installed.
+
+
+INSTALLATION
+
+Save the http_assertions.rb file in your Rails app's
+config/initializers directory.
+
+
+ON MY TO-DO LIST
+
+Wrap this up as a gem.
+Make test cases.
+Replace curl with native Ruby code.
+
+
+Drop me a line if this is useful for you.
+- Robb
 --
 Copyright 2010 Robb Shecter (robb@weblaws.org)
 Licensed under the Ruby License
