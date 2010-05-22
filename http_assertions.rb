@@ -1,6 +1,17 @@
-# Author:: Robb Shecter.
-# Copyright:: Copyright (c) 2009 Robb Shecter. All rights reserved.
+# Author:: Robb Shecter (robb@weblaws.org).
+# Copyright:: Copyright (c) 2010 Robb Shecter. All rights reserved.
 # License:: Ruby license.    
+#
+# This code adds these new assert methods for testing HTTP server
+# configurations.  Requires "curl" to be installed on the host
+# system.  
+#
+# assert_200
+# assert_forbidden
+# assert_temp_redirect_to
+# assert_perm_redirect_to
+#
+#
 
 module Test
   module Unit
