@@ -55,19 +55,3 @@ INSTALLATION
 
 Save the http_assertions.rb file in your Rails app's
 config/initializers directory.
-
-
-ON MY TO-DO LIST
-
-Wrap this up as a gem.
-Make test cases.
-Replace curl with native Ruby code.
-
-
-Drop me a line if this is useful for you.
-- Robb
---
-Copyright 2010 Robb Shecter (robb@weblaws.org)
-Licensed under the Ruby License
-
-
